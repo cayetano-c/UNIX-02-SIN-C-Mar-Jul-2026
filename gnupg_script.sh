@@ -1,6 +1,10 @@
 gpg --list-key s #This command lists the key.
 gpg --list-secret-keys --keyid-format=long #This command lists the private key.
-gpg --armor --export-secret-keys D83BBF4AAE393973 #This command exports the private key
-gpg --import Darwin #Public key export
-gpg -armor --export caye.cordova007@gmail.com > mi_clave_publica.asc #Export your public key to a file
-gpg --import Darwin_llave.asc #
+gpg --armor --export-secret-keys D83BBF4AAE393973 #This command exports the private key.
+gpg --import Darwin #Public key export.
+gpg -armor --export caye.cordova007@gmail.com > mi_clave_publica.asc #Export your public key to a file.
+gpg --import Darwin_llave.asc #Import my partners key.
+echo "Visca el Barça" > doc_no_cifrado.txt #Save the message in a file called doc_no_cifrado.txt.
+cat doc_no_cifrado.txt #Shows file content.
+gpg --output doc_cifrado.txt --encrypt --recipient 3B2211E8DC099B0EA44E29FE7A7737A898E97587 doc_no_cifrado.txt #Encrypt a file with the public key.
+gpg --decrypt doc_cifrado_daral.txt #Decryption of your partner file
