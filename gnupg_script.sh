@@ -9,3 +9,5 @@ cat doc_no_cifrado.txt #Shows file content.
 gpg --output doc_cifrado.txt --encrypt --recipient 3B2211E8DC099B0EA44E29FE7A7737A898E97587 doc_no_cifrado.txt #Encrypt a file with the public key.
 gpg --decrypt doc_cifrado_daral.txt #Decryption of your partner file
 gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado #Sign the file
+gpg --sign doc_no_cifrado.txt #Create a compressed file containing the original document and the signature.
+gpg --detach-sign doc_no_cifrado.txt #Create a small, standalone file that contains only the signature.
