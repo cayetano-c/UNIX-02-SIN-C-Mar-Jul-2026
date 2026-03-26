@@ -12,5 +12,5 @@ gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado #Sign the fil
 gpg --sign doc_no_cifrado.txt #Create a compressed file containing the original document and the signature.
 gpg --detach-sign doc_no_cifrado.txt #Create a small, standalone file that contains only the signature.
 gpg --verify doc_no_cifradoDarwinAl.txt.sig #Verify the signature of the file.
-gpg --edit-key Darwin #Allows you to manage, modify, and adjust the trust levels of a specific public key.
-gpg --sign-key Darwin #Digitally sign someone else's public key in your GPG keyring
+gpg --edit-key "NOMBRE" #Allows you to manage, modify, and adjust the trust levels of a specific public key.
+gpg --sign-key "NOMBRE" #Digitally sign someone else's public key in your GPG keyring.
