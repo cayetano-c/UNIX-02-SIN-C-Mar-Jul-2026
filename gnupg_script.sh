@@ -15,3 +15,4 @@ gpg --verify doc_no_cifradoDarwinAl.txt.sig #Verify the signature of the file.
 gpg --edit-key "NOMBRE" #Allows you to manage, modify, and adjust the trust levels of a specific public key.
 gpg --sign-key "NOMBRE" #Digitally sign someone else's public key in your GPG keyring.
 gpg --encrypt --sign #It is used to encrypt and digitally sign a file in a single step
+gpg --decrypt final_cifrado_firmadoDarwinAl.txt.gpg #Decrypt and verify a file that has been both encrypted and signed.
