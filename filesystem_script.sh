@@ -18,3 +18,5 @@ pwd #Is used for know where I´m moving.
 cd / #Change to general directory
 ls -F #Classify the type of files
 ls -i #Displays the unique inode number identifying each file or directory
+echo "MEEEEEEEESSI" >  test.txt #Create a file with a meessage
+stat test.txt #Shows detailed information of a file
