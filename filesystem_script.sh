@@ -14,3 +14,4 @@ ls #List the bin directory to look for the saludo_bin file
 cat saludo_bin #Shows the saludo_bin content
 cd /home #Change directory to Home
 saludo_bin #Print the original file content, not the binary 
+pwd #Is used for know where I´m moving.
