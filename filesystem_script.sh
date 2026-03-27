@@ -1,5 +1,5 @@
-cd /dev #Accede al directorio de archivos que representa (debian).
-ls #lista el contenido (archivos y carpetas) del directorio en el que te encuentras.
-cd /proc #Accede al directorio de archivos que representa (procfs).
-ls #lista el contenido (archivos y carpetas) del directorio en el que te encuentras.
- 
+cd /dev #change directory to dev directory.
+ls #List files and directories.
+cd /proc #Change directory to proc directory.
+ls #List process on proc directory.
+cat cpuinfo #Shows CPU information
