@@ -15,3 +15,6 @@ cat saludo_bin #Shows the saludo_bin content
 cd /home #Change directory to Home
 saludo_bin #Print the original file content, not the binary 
 pwd #Is used for know where I´m moving.
+cd / #Change to general directory
+ls -F #Classify the type of files
+ls -i #Displays the unique inode number identifying each file or directory
