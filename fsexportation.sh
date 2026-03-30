@@ -5,4 +5,5 @@ pip install numpy #Install the NumPy library to perform numerical calculations a
 sudo parted -l && echo -e "\---\n" && lsblk -f && echo -e "\n---\n"
 sudo parted -l #Tells you the physical size of the disk, the type of partition table (GPT or MBR) and whether there is unallocated free space.
 lsblk -f #It is key to identifying which partition corresponds to which folder and what format they have.
+[ -d /sys/firmware/efi ] && echo "UEFI" || echo "BIOS" #Detects whether the system booted using UEFI or traditional BIOS by verifying the existence of a specific directory.
 
