@@ -11,3 +11,8 @@ stat . #shows like the ID of the directory
 #Modify: 2026-04-16 15:59:13.101531427 +0000
 #Change: 2026-04-16 15:59:13.101531427 +0000
 #Birth: 2026-04-16 15:59:13.101531427 +0000
+
+cd #Change directory to home directory from any location of my OS
+cd /home/codespace #Change directory to home directory using absolute route
+# cd ~ #Change directory to home directory using ~ shortcut
+cd $HOME #Change directory to home directory using enviroment variable
