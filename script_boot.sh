@@ -16,3 +16,9 @@ cd #Change directory to home directory from any location of my OS
 cd /home/codespace #Change directory to home directory using absolute route
 # cd ~ #Change directory to home directory using ~ shortcut
 cd $HOME #Change directory to home directory using enviroment variable
+pwd #Where am I
+whoami #Who am I
+ls -lt #When each file was modified
+man ls #ls command manual
+ls /dev | head -5 #Show only the first 5 files or devices in the folder
+ls /etc | tail -5 #Display only the last 5 configuration files in the folder
