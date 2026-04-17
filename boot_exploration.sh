@@ -43,3 +43,18 @@ man git-clone #manual for the git clone command.
 #--depth <depth>
 #           Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless --no-single-branch is given to fetch the
 #           histories near the tips of all branches. If you want to clone submodules shallowly, also pass --shallow-submodules.
+
+#-rw-rw-rw-  1 codespace root       3203 Apr 17 14:14 Darwin_llave.asc
+#| |  |  |- Permissions for others -> Everyone else on the system can Read and Write.
+#| |  |---- Permissions for group -> Members of the group (root) can Read and Write.
+#| |------- Permissions for owner -> The owner can Read and Write.
+#|--------- Type of file -> It is a regular file 
+
+touch script.sh #
+# -rw-rw-rw-  1 codespace codespace     0 Apr 17 14:55 script.sh
+chmod +x script.sh #
+#-rwxrwxrwx  1 codespace codespace     0 Apr 17 14:55 script.sh
+chmod u+x script.sh #Gives the owner permission to run the file
+chmod o-r secreto.txt #Stops others from reading the file
+chmod u+x,go-rwx privado #Makes the file private so only the owner can run it while everyone else is locked out.
+#-rwx------  1 codespace codespace     0 Apr 17 15:00 privado
