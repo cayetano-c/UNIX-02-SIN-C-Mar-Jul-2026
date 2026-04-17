@@ -39,3 +39,7 @@ rmdir -- -rf #Deletes the directory named -rf
 
 ls --help #displays a comprehensive list of all the options you can use with the ls.
 man ls #Opens a full, paginated documentation file that explains everything about the ls command.
+man git-clone #manual for the git clone command.
+#--depth <depth>
+#           Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless --no-single-branch is given to fetch the
+#           histories near the tips of all branches. If you want to clone submodules shallowly, also pass --shallow-submodules.
