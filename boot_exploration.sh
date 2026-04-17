@@ -33,3 +33,9 @@ ls -lah #Other short option
 #-rw-rw-rw-  1 codespace root      1.2K Apr 17 14:14 final_cifrado_firmadoDarwinAl.txt.gpg
 #-rw-rw-rw-  1 codespace root      1.6K Apr 17 14:14 gnupg_script.sh
 #-rw-rw-rw-  1 codespace root      3.2K Apr 17 14:14 mi_clave_publica.asc
+
+mkdir -- -rf #Create a directory literally named -rf
+rmdir -- -rf #Deletes the directory named -rf
+
+ls --help #displays a comprehensive list of all the options you can use with the ls.
+man ls #Opens a full, paginated documentation file that explains everything about the ls command.
