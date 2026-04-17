@@ -50,9 +50,9 @@ man git-clone #manual for the git clone command.
 #| |------- Permissions for owner -> The owner can Read and Write.
 #|--------- Type of file -> It is a regular file 
 
-touch script.sh #
+touch script.sh #This command creates an empty file
 # -rw-rw-rw-  1 codespace codespace     0 Apr 17 14:55 script.sh
-chmod +x script.sh #
+chmod +x script.sh #Makes the file executable for everyone
 #-rwxrwxrwx  1 codespace codespace     0 Apr 17 14:55 script.sh
 chmod u+x script.sh #Gives the owner permission to run the file
 chmod o-r secreto.txt #Stops others from reading the file
