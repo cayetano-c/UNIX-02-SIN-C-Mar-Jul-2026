@@ -64,3 +64,10 @@ echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #Write 'hola' to a pro
 echo "hola" | sudo tee /etc/archivo_protegido  #Write 'hola' to a protected system file using administrative privileges and display the text in the terminal to confirm the action
 sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #Run a shell as a superuser to append the word 'chao' to the end of a protected system file.
 cat /etc/archivo_protegido #Display the entire contents of the protected file on the terminal screen.
+sudo -i #Open an interactive shell with root environment and privileges, and to exit, we use “exit”.
+#Print the absolute path of the current user's home directory to the terminal.
+echo "$HOME"
+echo "$BASH"
+
+#Print the literal string '$HOME' to the terminal without expanding the variable.
+echo '$HOME'
