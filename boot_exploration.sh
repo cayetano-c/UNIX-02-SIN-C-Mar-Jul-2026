@@ -58,3 +58,5 @@ chmod u+x script.sh #Gives the owner permission to run the file
 chmod o-r secreto.txt #Stops others from reading the file
 chmod u+x,go-rwx privado #Makes the file private so only the owner can run it while everyone else is locked out.
 #-rwx------  1 codespace codespace     0 Apr 17 15:00 privado
+
+sudo echo "hola" > /etc/archivo_protegido #The command cannot be executed because “sudo” only runs the command that appears next to it
