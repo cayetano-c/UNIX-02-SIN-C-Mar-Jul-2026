@@ -60,3 +60,5 @@ chmod u+x,go-rwx privado #Makes the file private so only the owner can run it wh
 #-rwx------  1 codespace codespace     0 Apr 17 15:00 privado
 
 sudo echo "hola" > /etc/archivo_protegido #The command cannot be executed because “sudo” only runs the command that appears next to it
+echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #Write 'hola' to a protected system file using administrative privileges while keeping the terminal output completely silent.
+echo "hola" | sudo tee /etc/archivo_protegido  #Write 'hola' to a protected system file using administrative privileges and display the text in the terminal to confirm the action
