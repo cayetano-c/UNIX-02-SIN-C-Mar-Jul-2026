@@ -87,3 +87,9 @@ ls /etc #Does not need it. Reading /etc is public.
 touch /etc/prueba.txt #Yes, it needs it. /etc belongs to root and does not allow normal users to write to it.
 mkdir ~/mi_carpeta #Does not need it. ~ is your own home (personal directory).
 apt install cowsay #Yes, it needs it. Installing packages affects system directories (/usr/bin, etc.).
+#EXERCISE 2
+touch prueba.txt #Create an empty file named prueba.txt or update its timestamp if it already exists.
+chmod 600 prueba.txt #Restrict the file so only the owner can read and write to it, while denying all access to everyone else.
+ls -l prueba.txt #Display the file's details in long format to verify that the permissions are now set to -rw-------.
+chmod 755 prueba.txt #Modify the permissions so the owner has full control, while others can only read and execute the file.
+ls -l prueba.txt #List the detailed information of prueba.txt to verify that permissions are now set to read, write, and execute for the owner, and read and execute for everyone else.
