@@ -62,3 +62,4 @@ chmod u+x,go-rwx privado #Makes the file private so only the owner can run it wh
 sudo echo "hola" > /etc/archivo_protegido #The command cannot be executed because “sudo” only runs the command that appears next to it
 echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #Write 'hola' to a protected system file using administrative privileges while keeping the terminal output completely silent.
 echo "hola" | sudo tee /etc/archivo_protegido  #Write 'hola' to a protected system file using administrative privileges and display the text in the terminal to confirm the action
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #Run a shell as a superuser to append the word 'chao' to the end of a protected system file.
