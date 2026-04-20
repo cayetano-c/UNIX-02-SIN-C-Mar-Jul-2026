@@ -80,3 +80,4 @@ ls -l hola.sh #List the file details in long format to check the current permiss
 chmod +x hola.sh #Modify the file permissions to make the script executable for the user.
 ls -l hola.sh #List the file details again to confirm that the 'x' (executable) permission has been successfully added.
 ./hola.sh #Run the script located in the current directory and execute the instructions contained inside it.
+history #Display a numbered list of all the commands previously executed.
