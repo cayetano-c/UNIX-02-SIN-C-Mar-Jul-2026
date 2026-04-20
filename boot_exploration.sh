@@ -81,3 +81,9 @@ chmod +x hola.sh #Modify the file permissions to make the script executable for 
 ls -l hola.sh #List the file details again to confirm that the 'x' (executable) permission has been successfully added.
 ./hola.sh #Run the script located in the current directory and execute the instructions contained inside it.
 history #Display a numbered list of all the commands previously executed.
+
+#LOOK IF THE COMMANDS NEEDS SUDO OR NOT
+ls /etc #Does not need it. Reading /etc is public.
+touch /etc/prueba.txt #Yes, it needs it. /etc belongs to root and does not allow normal users to write to it.
+mkdir ~/mi_carpeta #Does not need it. ~ is your own home (personal directory).
+apt install cowsay #Yes, it needs it. Installing packages affects system directories (/usr/bin, etc.).
