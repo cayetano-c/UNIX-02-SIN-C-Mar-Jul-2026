@@ -63,3 +63,4 @@ sudo echo "hola" > /etc/archivo_protegido #The command cannot be executed becaus
 echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #Write 'hola' to a protected system file using administrative privileges while keeping the terminal output completely silent.
 echo "hola" | sudo tee /etc/archivo_protegido  #Write 'hola' to a protected system file using administrative privileges and display the text in the terminal to confirm the action
 sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #Run a shell as a superuser to append the word 'chao' to the end of a protected system file.
+cat /etc/archivo_protegido #Display the entire contents of the protected file on the terminal screen.
