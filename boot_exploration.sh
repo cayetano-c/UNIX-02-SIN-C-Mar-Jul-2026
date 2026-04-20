@@ -71,3 +71,12 @@ echo "$BASH"
 
 #Print the literal string '$HOME' to the terminal without expanding the variable.
 echo '$HOME'
+
+
+echo '#!/bin/sh' > hola.sh #Create a new file named hola.sh and write the '' line to specify that it should be executed using the system shell.
+echo 'echo "Hola Mundo"' >> hola.sh #Append the command to print 'Hola Mundo' to the end of the hola.sh file without overwriting the existing content.
+cat hola.sh #Read and display the contents of the hola.sh file in the terminal to verify the script's code.
+ls -l hola.sh #List the file details in long format to check the current permissions, owner, and size of hola.sh.
+chmod +x hola.sh #Modify the file permissions to make the script executable for the user.
+ls -l hola.sh #List the file details again to confirm that the 'x' (executable) permission has been successfully added.
+./hola.sh #Run the script located in the current directory and execute the instructions contained inside it.
