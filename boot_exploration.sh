@@ -99,3 +99,9 @@ sudo apt-get upgrade #Updates all currently installed packages on your system to
 sudo apt install acl #Installs the Access Control List (ACL) utility, which allows for more flexible and granular permission management than standard Linux permissions.
 sudo chown -R $(whoami) . #Recursively changes the ownership of the current directory (and everything inside it) to your current user. The . represents the current directory, and -R stands for recursive.
 sudo setfacl -bnR . #Removes all extended ACL entries and restores the directory to its standard permissions recursively. -b: Removes all extended ACL entries. -n: Don't recalculate the mask. -R: Recursive.
+#Output of the command with umask.
+#-rw-r----- 1 codespace codespace     0 Apr 27 15:21 archivo2
+#drwxr-x--- 2 codespace codespace  4096 Apr 27 15:21 directorio2
+umask 027 #Sets the default permission mask for new files and directories created in the current session. 0: The owner gets full permissions. 2: The group loses write permissions. 7: Others lose all permissions (read, write, and execute).
+touch archivo2 # Creates an empty file named "archivo2". If the file already exists, it simply updates the file's timestamp without changing the content.
+mkdir directorio2 #Creates a new, empty directory named "directorio2".
