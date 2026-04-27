@@ -105,3 +105,6 @@ sudo setfacl -bnR . #Removes all extended ACL entries and restores the directory
 umask 027 #Sets the default permission mask for new files and directories created in the current session. 0: The owner gets full permissions. 2: The group loses write permissions. 7: Others lose all permissions (read, write, and execute).
 touch archivo2 # Creates an empty file named "archivo2". If the file already exists, it simply updates the file's timestamp without changing the content.
 mkdir directorio2 #Creates a new, empty directory named "directorio2".
+umask 077 #Sets the default permission mask to be extremely restrictive.
+touch secreto1.txt #Creates an empty file named "secreto1.txt". Because of the umask 077, only you (the owner) will be able to read or edit this file.
+mkdir privado1 #Creates a new directory named "privado1". Because of the umask 077, only you can enter this folder or see its contents.
