@@ -108,3 +108,11 @@ mkdir directorio2 #Creates a new, empty directory named "directorio2".
 umask 077 #Sets the default permission mask to be extremely restrictive.
 touch secreto1.txt #Creates an empty file named "secreto1.txt". Because of the umask 077, only you (the owner) will be able to read or edit this file.
 mkdir privado1 #Creates a new directory named "privado1". Because of the umask 077, only you can enter this folder or see its contents.
+whoami #
+echo "Hola Mundo" > mi_archivo #
+useradd -m -s /usr/bin/zsh luna #Attempts to create a new user named "luna". This likely failed because creating users requires administrative privileges.
+sudo useradd -m -s /usr/bin/zsh luna #Successfully creates the user "luna" with specific settings: -m: Creates a home directory (/home/luna). -s /usr/bin/zsh: Sets ZSH as the default login shell for this user.
+ls /home #Lists the contents of the home directory to verify that the folder for the new user (luna) was created.
+ls -l mi_archivo #Displays the long format details of "mi_archivo," showing its current permissions, owner, and group.
+sudo chown luna mi_archivo #Changes the owner of the file "mi_archivo" to the user luna. The group ownership remains unchanged unless specified.
+ls -l mi_archivo #Lists the file details again to confirm that the owner has successfully changed from your user to luna.
