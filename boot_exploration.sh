@@ -93,3 +93,9 @@ chmod 600 prueba.txt #Restrict the file so only the owner can read and write to 
 ls -l prueba.txt #Display the file's details in long format to verify that the permissions are now set to -rw-------.
 chmod 755 prueba.txt #Modify the permissions so the owner has full control, while others can only read and execute the file.
 ls -l prueba.txt #List the detailed information of prueba.txt to verify that permissions are now set to read, write, and execute for the owner, and read and execute for everyone else.
+#To solve the "umask" problem without using AI, it's best to use Google Search and look up the issue; that way, we'll find the solution. If we use AI without the necessary knowledge, we'll just end up confused. But by using the search engine, we'll find various websites where the problem has already been solved, allowing us to understand both the problem and the solution.sudo apt-get update 
+sudo apt update #This command refreshes the local index of available packages.
+sudo apt-get upgrade #Updates all currently installed packages on your system to their latest versions based on the software sources list.
+sudo apt install acl #Installs the Access Control List (ACL) utility, which allows for more flexible and granular permission management than standard Linux permissions.
+sudo chown -R $(whoami) . #Recursively changes the ownership of the current directory (and everything inside it) to your current user. The . represents the current directory, and -R stands for recursive.
+sudo setfacl -bnR . #Removes all extended ACL entries and restores the directory to its standard permissions recursively. -b: Removes all extended ACL entries. -n: Don't recalculate the mask. -R: Recursive.
