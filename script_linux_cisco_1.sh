@@ -119,3 +119,80 @@ cat #The command (short for "concatenate") is one of the most frequently used to
 Visca el Barça
 cat animals.txt # Prints the entire content of "animals.txt" to the terminal.
 sysadmin@localhost:~/Documents$ cat animals.txt
+1 retriever                                                                     
+2 badger                                                                        
+3 bat                                                                           
+4 wolf                                                                          
+5 eagle     
+cat alpha.txt # Prints the entire content of "alpha.txt" to the terminal.
+sysadmin@localhost:~/Documents$ cat alpha.txt                                   
+A is for Apple                                                                  
+B is for Bear                                                                   
+C is for Cat                                                                    
+D is for Dog                                                                    
+E is for Elephant                                                               
+F is for Flower                                                                 
+G is for Grapes                                                                 
+H is for Happy                                                                  
+I is for Ink                                                                    
+J is for Juice                                                                  
+K is for Kangaroo                                                               
+L is for Lol                                                                    
+M is for Monkey                                                                 
+N is for Nickel                                                                 
+O is for Oval                                                                   
+P is for Pickle                                                                 
+Q is for Quark                                                                  
+R is for Rat                                                                    
+S is for Sloth                                                                  
+T is for Turnip                                                                 
+U is for Up                                                                     
+V is for Velvet                                                                 
+W is for Walrus                                                                 
+X is for Xenon                                                                  
+Y is for Yellow                                                                 
+Z is for Zebra         
+head alpha.txt #The head command is used to view the start of a text file.
+sysadmin@localhost:~/Documents$ head alpha.txt                                  
+A is for Apple                                                                  
+B is for Bear                                                                   
+C is for Cat                                                                    
+D is for Dog                                                                    
+E is for Elephant                                                               
+F is for Flower                                                                 
+G is for Grapes                                                                 
+H is for Happy                                                                  
+I is for Ink                                                                    
+J is for Juice       
+tail alpha.txt # Displays the last 10 lines of the "alpha.txt" file.
+sysadmin@localhost:~/Documents$ tail alpha.txt                                  
+Q is for Quark                                                                  
+R is for Rat                                                                    
+S is for Sloth                                                                  
+T is for Turnip                                                                 
+U is for Up                                                                     
+V is for Velvet                                                                 
+W is for Walrus                                                                 
+X is for Xenon                                                                  
+Y is for Yellow                                                                 
+Z is for Zebra   
+head -n 5 alpha.txt # Displays specifically the first 5 lines of the file.
+sysadmin@localhost:~/Documents$ head -n 5 alpha.txt                             
+A is for Apple                                                                  
+B is for Bear                                                                   
+C is for Cat                                                                    
+D is for Dog                                                                    
+E is for Elephant 
+tail -n 5 alpha.txt # Displays specifically the last 5 lines of the file.
+sysadmin@localhost:~/Documents$ tail -n 5 alpha.txt                             
+V is for Velvet                                                                 
+W is for Walrus                                                                 
+X is for Xenon                                                                  
+Y is for Yellow                                                                 
+Z is for Zebra    
+cp /etc/passwd . # Copies the system password file to your current directory.
+ls # Lists files to confirm the "passwd" file was copied.
+cd ~ # Returns to the home directory.
+dd if=/dev/zero of=/tmp/swapex bs=1M count=50 # Creates a 50MB file of empty data for testing.
+dd if=/dev/sda of=/dev/sdb # Clones the entire first hard drive (sda) to the second (sdb).
+
