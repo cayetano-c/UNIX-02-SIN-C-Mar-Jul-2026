@@ -114,3 +114,8 @@ ls -l hello.sh # Verifies that the execution permission (x) was added.
 sudo chown root hello.sh # Changes the owner of the script to the root user.
 ls -l hello.sh # Confirms that root is now the owner of the file.
 ./hello.sh # Runs the script (execution remains possible if permissions allow).
+cat #The command (short for "concatenate") is one of the most frequently used tools in Linux for handling text files.
+@cayetano-c ➜ /workspaces/UNIX-02-SIN-C-Mar-Jul-2026/calculadora (linux_cisco_1) $ cat doc_no_cifrado.txthead alpha.txt # Displays the first 10 lines of the "alpha.txt" file.
+Visca el Barça
+cat animals.txt # Prints the entire content of "animals.txt" to the terminal.
+sysadmin@localhost:~/Documents$ cat animals.txt
