@@ -192,7 +192,13 @@ Y is for Yellow
 Z is for Zebra    
 cp /etc/passwd . # Copies the system password file to your current directory.
 ls # Lists files to confirm the "passwd" file was copied.
+@cayetano-c ➜ /workspaces/UNIX-02-SIN-C-Mar-Jul-2026/calculadora (linux_cisco_1) $ cp /etc/passwd .
+@cayetano-c ➜ /workspaces/UNIX-02-SIN-C-Mar-Jul-2026/calculadora (linux_cisco_1) $ ls
+app.py  passwd  sumas.py
 cd ~ # Returns to the home directory.
 dd if=/dev/zero of=/tmp/swapex bs=1M count=50 # Creates a 50MB file of empty data for testing.
 dd if=/dev/sda of=/dev/sdb # Clones the entire first hard drive (sda) to the second (sdb).
-
+@cayetano-c ➜ /workspaces/UNIX-02-SIN-C-Mar-Jul-2026/calculadora (linux_cisco_1) $ dd if=/dev/zero of=/tmp/swapex bs=1M count=50 
+50+0 records in
+50+0 records out
+52428800 bytes (52 MB, 50 MiB) copied, 0.0463838 s, 1.1 GB/s
