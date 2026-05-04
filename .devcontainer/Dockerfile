@@ -220,6 +220,6 @@ RUN git config --system --add safe.directory '*' \
 # Prompt del curso para bash
 RUN chsh -s /usr/bin/zsh root
 RUN cat >> /root/.zshrc <<'EOF'
-PROMPT='%F{cyan}[🐐Cayetano_Córdova]%f %F{yellow}%1~%f %(?.%F{green}✔️.%F{red}✘ %?)%f %# '
+PROMPT='%F{cyan}[🐐Cayetano_Córdova]%f %F{yellow}%1~%f %(?.%F{green}✓.%F{red}✘ %?)%f %# '
 EOF
 CMD ["/usr/bin/zsh"]
