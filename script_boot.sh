@@ -34,3 +34,41 @@ ls /dev | head -7 # Shows the first 7 files in /dev
 ls /etc # List of configuration files
 ls /etc | tail -5 # Shows the last 5 files in /etc
 ls -al # Shows detailed list including hidden files
+
+#DISTRO COMMANDS
+sudo apt update # This command is used to update with super user
+sudo apt install -y git vim make gcc libncurses-dev flex bison bc cpio libelf-dev libssl-dev syslinux dosfstools qemu-system # With this command we can install all the packages we need to create our distro
+git clone --depth 1 https://github.com/torvalds/linux.git # With this command we clone the repo and only the last commit
+cd Linux # Change directory to Linux
+make menuconfig # Open configuration menu to select kernel options (we select 64-bit kernel)
+make -j 2 # Start compilation using two processor cores
+sudo mkdir /boot-files # Create directory to store boot files
+sudo cp arch/x86/boot/bzImage /boot-files/ # Copy kernel image to /boot-files
+cd .. # Go back to root directory
+git clone --depth 1 https://git.busybox.net/busybox # Clone BusyBox repository (last commit only)
+cd busybox # Change directory to busybox
+make menuconfig # Configure BusyBox (enable static binary)
+make -j 2 # Compile BusyBox using two cores
+sudo mkdir /boot-files/initramfs # Create initramfs directory
+sudo make CONFIG_PREFIX=/boot-files/initramfs install # Install BusyBox structure into initramfs
+cd /boot-files/initramfs # Change directory to initramfs
+sudo vi init # Edit init file with vi as superuser
+cat init # Show content of init
+sudo rm linuxrc # Remove linuxrc file
+sudo chmod +x init # Give execute permission to init
+sudo sh -c "find . | cpio -o -H newc > ../init.cpio" # Pack initramfs into init.cpio
+cd .. # Go back to root directory
+sudo su # Switch to superuser
+dd if=/dev/zero of=boot bs=1M count=50 # Create 50MB empty file as virtual disk
+mkfs -t fat boot # Format file with FAT filesystem
+syslinux boot # Install Syslinux bootloader
+mkdir m # Create mount directory
+mount boot m # Mount boot file into m
+cp bzImage init.cpio m # Copy kernel and initramfs into mounted directory
+umount m # Unmount directory
+sudo qemu-system-x86_64 -nographic -append "console=ttyS0" -kernel bzImage -initrd init.cpio -drive file=boot,format=raw # Run OS using QEMU
+ls # List files in OS
+pwd # Show current directory path
+vi init # Edit init file
+bc # Open calculator
+quit # Exit calculator
