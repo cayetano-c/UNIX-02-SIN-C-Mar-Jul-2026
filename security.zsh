@@ -14,3 +14,8 @@ groups $USER #Displays the group memberships for the specific user currently log
 id -u #Prints only the Effective User ID (UID).
 id -g #Prints only the Effective Group ID (GID).
 id -G #Prints all Group IDs (both primary and supplementary) associated with the user.
+
+groupadd desarroolladores #Create a new standard user group named "desarroolladores".
+groupadd -g 2000 operaciones #Create a group with a specific Group ID (GID) set to 2000.
+groupadd --system servicios_web #Create a system account group (usually for services, with a GID in the lower reserved range).
+grep -E "desarroolladores|operaciones|servicios_web" /etc/group #Search and filter the group database file using Extended Regular Expressions.
