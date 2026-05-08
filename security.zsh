@@ -6,3 +6,7 @@ cat /etc/passwd | head -10 #Shows only the first 10 entries (lines) of the user 
 #My files and directories inherit the GID and UID
 touch test.txt
 ls -la
+#Criptografia postcuántica
+
+cat /etc/group | head -10 #View all groups on my system
+groups $USER #Displays the group memberships for the specific user currently logged into the environment.
