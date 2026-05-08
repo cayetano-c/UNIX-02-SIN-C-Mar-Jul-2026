@@ -31,4 +31,10 @@ SUB_GID_MAX             600100000
 addgroup diseno #Create a new standard group named "diseno".
 addgroup -gid 2100 marketing #Create a group with a specific ID (GID 2100).
 addgroup --system cache_web #Create a system group (used for services/daemons).
-grep -E "diseno|marketing|cache_web" /etc/group #Verify group creation by searching the group database.
+[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # grep -E "diseno|marketing|cache_web" /etc/group #Verify group creation by searching the group database.
+diseno:x:1001:
+marketing:x:2100:
+cache_web:x:102:
+
+usermod -aG desarroolladores root #Add the "root" user to the "desarrolladores" group without removing them from their current groups.
+usermod -aG diseno root #Add the user "root" to the "diseno" group as a supplementary member.
