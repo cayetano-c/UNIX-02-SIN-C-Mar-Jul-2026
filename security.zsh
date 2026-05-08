@@ -27,3 +27,8 @@ GID_MAX                 60000
 #SYS_GID_MAX              999
 SUB_GID_MIN                100000
 SUB_GID_MAX             600100000
+
+addgroup diseno #Create a new standard group named "diseno".
+addgroup -gid 2100 marketing #Create a group with a specific ID (GID 2100).
+addgroup --system cache_web #Create a system group (used for services/daemons).
+grep -E "diseno|marketing|cache_web" /etc/group #Verify group creation by searching the group database.
