@@ -10,3 +10,7 @@ ls -la
 
 cat /etc/group | head -10 #View all groups on my system
 groups $USER #Displays the group memberships for the specific user currently logged into the environment.
+
+id -u #Prints only the Effective User ID (UID).
+id -g #Prints only the Effective Group ID (GID).
+id -G #Prints all Group IDs (both primary and supplementary) associated with the user.
