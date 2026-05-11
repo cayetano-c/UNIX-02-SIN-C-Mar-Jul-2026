@@ -40,3 +40,6 @@ usermod -aG desarroolladores root #Add the "root" user to the "desarrolladores" 
 usermod -aG diseno root #Add the user "root" to the "diseno" group as a supplementary member.
 
 grep -E "desarroolladores|diseno" /etc/group #Search for lines matching "desarroolladores" or "diseno" in the system group file.
+adduser root marketing #Adds the user "root" to the "marketing" group. 
+grep root /etc/group #Displays the entry for the "root" group in the system group file.
+id root #Shows the user ID (UID), group ID (GID), and all group memberships for the user "root".
