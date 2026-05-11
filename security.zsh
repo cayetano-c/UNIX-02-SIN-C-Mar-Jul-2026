@@ -38,3 +38,5 @@ cache_web:x:102:
 
 usermod -aG desarroolladores root #Add the "root" user to the "desarrolladores" group without removing them from their current groups.
 usermod -aG diseno root #Add the user "root" to the "diseno" group as a supplementary member.
+
+grep -E "desarroolladores|diseno" /etc/group #Search for lines matching "desarroolladores" or "diseno" in the system group file.
