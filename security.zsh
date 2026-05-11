@@ -52,3 +52,25 @@ uid=0(root) gid=0(root) grupos=0(root),1000(desarroolladores)
 usermod -aG diseno,marketing,grupo_temporal root #Adds the user "root" to the "diseno", "marketing", and "grupo_temporal" groups without removing existing memberships.
 [🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # id root
 uid=0(root) gid=0(root) grupos=0(root),1000(desarroolladores),1001(diseno),2100(marketing),2101(grupo_temporal) #Restored groups
+
+mkdir -p ~/lab_chgrp/{proyectos,reportes,scripts} #Creates a directory named "lab_chgrp" with three subdirectories simultaneously.
+touch ~/lab_chgrp/proyectos/app.py #Creates an empty file named "app.py" inside the "proyectos" folder.
+touch ~/lab_chgrp/proyectos/config.json #Creates an empty file named "config.json" inside the "proyectos" folder.
+touch ~/lab_chgrp/reportes/informe.txt #Creates an empty file named "informe.txt" inside the "reportes" folder.
+touch ~/lab_chgrp/scripts/deploy.sh #Creates an empty file named "deploy.sh" inside the "scripts" folder.
+
+#Lists detailed attributes, permissions, and ownership for all files in the "proyectos" directory.
+[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # ls -la ~/lab_chgrp/proyectos/
+total 8
+drwxr-xr-x 2 root root 4096 may 11 14:58 .
+drwxr-xr-x 5 root root 4096 may 11 14:57 ..
+-rw-r--r-- 1 root root    0 may 11 14:58 app.py
+-rw-r--r-- 1 root root    0 may 11 14:58 config.json
+
+ #Lists detailed attributes, permissions, and ownership for all files in the "reportes" directory.                                                                                                                                                                                                        
+[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # ls -la ~/lab_chgrp/reportes/ 
+total 8
+drwxr-xr-x 2 root root 4096 may 11 14:59 .
+drwxr-xr-x 5 root root 4096 may 11 14:57 ..
+-rw-r--r-- 1 root root    0 may 11 14:59 informe.txt
+                                                        
