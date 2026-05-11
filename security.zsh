@@ -43,3 +43,5 @@ grep -E "desarroolladores|diseno" /etc/group #Search for lines matching "desarro
 adduser root marketing #Adds the user "root" to the "marketing" group. 
 grep root /etc/group #Displays the entry for the "root" group in the system group file.
 id root #Shows the user ID (UID), group ID (GID), and all group memberships for the user "root".
+groupadd grupo_temporal #Creates a new group named "grupo_temporal" in the system.
+usermod -aG grupo_temporal root #Adds the user "root" to the "grupo_temporal" group as a supplementary group.
