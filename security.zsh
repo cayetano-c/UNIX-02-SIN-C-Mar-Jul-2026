@@ -73,4 +73,10 @@ total 8
 drwxr-xr-x 2 root root 4096 may 11 14:59 .
 drwxr-xr-x 5 root root 4096 may 11 14:57 ..
 -rw-r--r-- 1 root root    0 may 11 14:59 informe.txt
-                                                        
+[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # chgrp desarroolladores ~/lab_chgrp/proyectos/app.py #Changes the group ownership of "app.py" to "desarroolladores".                                                                                                                                                                           
+[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # ls -la ~/lab_chgrp/proyectos/                      
+total 8
+drwxr-xr-x 2 root root             4096 may 11 14:58 .
+drwxr-xr-x 5 root root             4096 may 11 14:57 ..
+-rw-r--r-- 1 root desarroolladores    0 may 11 14:58 app.py
+-rw-r--r-- 1 root root                0 may 11 14:58 config.json
