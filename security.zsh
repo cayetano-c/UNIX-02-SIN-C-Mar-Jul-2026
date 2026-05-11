@@ -45,3 +45,7 @@ grep root /etc/group #Displays the entry for the "root" group in the system grou
 id root #Shows the user ID (UID), group ID (GID), and all group memberships for the user "root".
 groupadd grupo_temporal #Creates a new group named "grupo_temporal" in the system.
 usermod -aG grupo_temporal root #Adds the user "root" to the "grupo_temporal" group as a supplementary group.
+usermod -G desarroolladores root #Changes the user "root" primary/supplementary groups to only "desarroolladores", removing all other secondary groups.
+[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # id root
+uid=0(root) gid=0(root) grupos=0(root),1000(desarroolladores)
+
