@@ -80,3 +80,20 @@ drwxr-xr-x 2 root root             4096 may 11 14:58 .
 drwxr-xr-x 5 root root             4096 may 11 14:57 ..
 -rw-r--r-- 1 root desarroolladores    0 may 11 14:58 app.py
 -rw-r--r-- 1 root root                0 may 11 14:58 config.json
+
+chgrp diseno ~/lab_chgrp/proyectos/config.json ~/lab_chgrp/reportes/informe.txt #Changes the group ownership of both "config.json" and "informe.txt" to "diseno".
+
+ls -la ~/lab_chgrp/proyectos/ #Lists files in "proyectos" to verify that "config.json" now belongs to the "diseno" group.
+[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # ls -la ~/lab_chgrp/proyectos/
+total 8
+drwxr-xr-x 2 root root             4096 may 11 14:58 .
+drwxr-xr-x 5 root root             4096 may 11 14:57 ..
+-rw-r--r-- 1 root desarroolladores    0 may 11 14:58 app.py
+-rw-r--r-- 1 root diseno              0 may 11 14:58 config.json
+
+ls -la ~/lab_chgrp/reportes/ #Lists files in "reportes" to verify that "informe.txt" now belongs to the "diseno" group.                                                                                                                                                                                                                    
+[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # ls -la ~/lab_chgrp/reportes/                                                   
+total 8
+drwxr-xr-x 2 root root   4096 may 11 14:59 .
+drwxr-xr-x 5 root root   4096 may 11 14:57 ..
+-rw-r--r-- 1 root diseno    0 may 11 14:59 informe.txt
