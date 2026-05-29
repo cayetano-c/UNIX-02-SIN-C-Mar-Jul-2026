@@ -13,3 +13,10 @@ echo "Current group: $(id -gn)"
 # Create a file before newgrp
 touch ~/antes_de_newgrp.txt
 ls -la ~/antes_de_newgrp.txt
+
+#Installs additional essential system utilities for Linux (such as extra multi-user administration tools).
+apt install util-linux-extra 
+#Creates a new system group named desarrolladores (developers).
+groupadd desarrolladores
+#Switches your current shell session's primary group to desarrolladores.
+newgrp desarrolladores 
