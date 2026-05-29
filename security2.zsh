@@ -59,3 +59,16 @@ ls -la ~/dentro_de_newgrp.txt
 # Create a directory
 mkdir -p ~/proyecto_dev/src
 ls -la ~/
+
+# newgrp creates a subshell — this can be proven
+echo "Current shell PID: $$"
+newgrp desarrolladores
+echo "PID inside newgrp: $$"
+# The PID is different — it is a child process
+
+#[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # echo "Current shell PID: $$"
+#Current shell PID: 15088                                                                                                                                                                        
+#[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # newgrp desarrolladores
+#[🐐Cayetano_Córdova] UNIX-02-SIN-C-Mar-Jul-2026 ✓ # echo "PID inside newgrp: $$"
+#PID inside newgrp: 28077
+                           
