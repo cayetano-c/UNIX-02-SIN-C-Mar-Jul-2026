@@ -1,0 +1,3 @@
+GOODBYE!
+GOODBYEcat output.txt
+GOODBYE
