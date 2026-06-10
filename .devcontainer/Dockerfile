@@ -11,6 +11,8 @@
 #  con ese plano. Puedes construir muchas casas iguales a partir de un
 #  solo plano, y si destruyes una casa el plano sigue intacto.
 #
+#  Each instruction adds a read-only layer. Order matters because changing an early 
+#  line breaks down the cache chain for all subsequent steps (BHB Ch. 3).
 #  Cada instrucción (FROM, ENV, RUN...) crea una "capa". Docker guarda
 #  esas capas en caché: si no cambias las primeras líneas, no las
 #  reconstruye y el siguiente build es casi instantáneo.
@@ -23,6 +25,7 @@
 # En lugar de partir de cero, partimos de la imagen oficial de Kali Linux
 # en su versión "rolling" (actualización continua, siempre al día).
 # Todo lo que instalemos más abajo se apila ENCIMA de esta base.
+# [BHB Ch. 3 - Setting up the lab]: Baseline image provides the core pentesting ecosystem.
 FROM kalilinux/kali-rolling:latest
 
 
@@ -48,6 +51,7 @@ FROM kalilinux/kali-rolling:latest
 #
 # La barra invertida "\" al final de cada línea significa "esto continúa
 # en la línea siguiente". Solo es para legibilidad.
+# [BHB Ch. 1 - Core Environments]: Environment configurations dictate terminal visibility properties.
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
@@ -61,6 +65,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # normales (no-root) deben poder capturar paquetes. Como en el contenedor
 # siempre somos root, respondemos "false" POR ADELANTADO usando
 # debconf-set-selections para que no detenga el build esperando input.
+# [BHB Ch. 1 & Ch. 3]: Merging streams (|) pipes predefined strings to automate installation prompts.
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
 
@@ -83,9 +88,19 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # El "&&" encadena comandos: ejecuta el siguiente SOLO SI el anterior
 # terminó bien. Si algo falla, el build se detiene con error (que es lo
 # que queremos: mejor un error claro que una imagen rota).
+#
+# Technical Summary of the toolsets included below:
+# - gawk, sed, grep: 4th generation utilities for text processing and pattern parsing (BHB Ch. 2).
+# - shellcheck: Code optimization and syntax checking tool for shell scripts (BHB Ch. 1).
+# - nmap, masscan: Network discovery and rapid port scanners for infrastructure mapping (BHB Ch. 3).
+# - tcpdump, tshark: Raw network sniffing engines and packet inspectors (BHB Ch. 3).
+# - tor, proxychains4: Traffic pivoting tools to mask source signatures over local proxy chains (BHB Ch. 3).
+# - jq: Data processing filter specialized in slicing raw JSON objects natively (BHB Ch. 2).
+# - man-db: Rebuilds structural manual page database layers normally stripped from minimal containers.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     \
     # === Editores de texto y shells (intérpretes de comandos) ===
+# [BHB Ch. 1]: Extensible and classic text editors needed for headless terminal operations.
     neovim \
     vim \
     zsh \
@@ -93,6 +108,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     \
     # === Herramientas de 4ta generación ===
     # Estas son las protagonistas de las Unidades 2, 3 y 4:
+# [BHB Ch. 2 - Text Processing]: Core programming utilities for deep text filtering and data slicing.
     perl \
     make \
     gawk \
@@ -106,6 +122,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # less = paginador para leer archivos largos.
     # tree = muestra directorios como árbol.
     # jq = procesa JSON desde la línea de comandos.
+# [BHB Ch. 1 & Ch. 2]: Vital binaries to manage filesystems, process IDs, and structured data formats.
     coreutils \
     findutils \
     procps \
@@ -113,15 +130,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tree \
     jq \
     \
-    # === Páginas de manual (comando `man`) ===
+    # === Páginas de manual (comando man) ===
     # La imagen base de Kali viene sin documentación para
     # ahorrar espacio. La reinstalamos porque en el curso "man bash" o
     # "man grep" es material de consulta obligada.
+# [BHB Ch. 1]: Offline reference guidelines mapping structural command flags.
     man-db \
     manpages \
     manpages-posix \
     \
     # === Red básica y utilidades de descarga ===
+# [BHB Ch. 3]: Downloader software layers and certificate definitions for validated network transport.
     curl \
     wget \
     git \
@@ -130,17 +149,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     locales \
     \
     # === Linter (revisor automático de errores) para scripts Bash ===
+# [BHB Ch. 1]: Static scanning analyzer that screens code paths to eliminate bugs before execution.
     shellcheck \
     \
     # === Reconocimiento y escaneo de red ===
     # nmap = el escáner de puertos más famoso.
     # masscan = escaneo masivo de rangos grandes de IPs.
+# [BHB Ch. 3]: Active host discovery utilities deployed to map system infrastructures.
     nmap \
     masscan \
     \
     # === Captura y análisis de paquetes de red ===
     # tcpdump = capturador clásico por terminal.
     # tshark = versión de terminal de Wireshark.
+# [BHB Ch. 3]: Live packet analysis models built for deep packet monitoring and protocol sniffing.
     tcpdump \
     tshark \
     \
@@ -160,6 +182,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # torsocks = "envoltorio" que hace pasar cualquier comando por Tor.
     # proxychains4 = encadena múltiples proxies.
     # obfs4proxy = ofusca el tráfico de Tor para evadir bloqueos.
+# [BHB Ch. 3]: Cryptographic routing mechanisms to pivot traffic structures over anonymous networks.
     tor \
     torsocks \
     proxychains4 \
@@ -171,6 +194,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # --- Después de instalar, activamos el idioma español ---
  # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
  # activar esa línea. Luego locale-gen compila los archivos de idioma.
+# In-place substitution configuration to process the Spanish systemic locale framework.
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
@@ -178,6 +202,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # apt deja archivos de caché que ya no necesitamos después de instalar.
  # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
  # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
+# [BHB Ch. 3 - Custom Containers]: Cleaning package artifacts within the same layer boundary prevents bloat.
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -188,6 +213,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Por defecto Docker usa /bin/sh (un shell más limitado y antiguo). Lo
 # cambiamos a bash por si agregamos más instrucciones con sintaxis
 # moderna (arrays, [[ ]], etc.).
+# [BHB Ch. 1 - The Command Line]: Enforces the robust Bash execution engine over standard sh.
 SHELL ["/bin/bash", "-c"]
 
 
@@ -197,6 +223,7 @@ SHELL ["/bin/bash", "-c"]
 # Codespaces siempre monta el código del repositorio en
 # /workspaces/<nombre-del-repo>. Establecer /workspaces aquí hace que las
 # terminales se abran cerca de nuestros archivos del curso.
+# [BHB Ch. 3]: Sets the global filesystem directory focus inside the container environment.
 WORKDIR /workspaces
 
 # Configuración de Git para el contenedor:
@@ -206,6 +233,7 @@ WORKDIR /workspaces
 # - pull.rebase false: merge por defecto al hacer pull (más intuitivo)
 # - git lfs install --system: registra los hooks de LFS globalmente para
 #   que, si un repo los necesita, funcionen sin sorpresas.
+# Global git rules mapping workspace tracking mechanisms safely (BHB Ch. 3).
 RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
@@ -217,9 +245,25 @@ RUN git config --system --add safe.directory '*' \
 # Lanza una shell bash interactiva. Codespaces la sobrescribe con su
 # propia terminal integrada de VS Code, pero es buena práctica dejarla
 # definida para que la imagen sea usable también con Docker puro.
-# Prompt del curso para bash
-RUN chsh -s /usr/bin/zsh root
-RUN cat >> /root/.zshrc <<'EOF'
-PROMPT='%F{cyan}[🐐Cayetano_Córdova]%f %F{yellow}%1~%f %(?.%F{green}✓.%F{red}✘ %?)%f %# '
+# Prompt institucional para los y las estudiantes del curso
+# PS1 usa secuencias de escape de bash:
+#   \[\e[36m\] = cian   \[\e[33m\] = amarillo
+#   \[\e[32m\] = verde  \[\e[31m\] = rojo   \[\e[0m\] = reset
+#   \W = directorio actual (solo el último nivel)
+#
+# Note for Block k & l: Bash is preserved intentionally as the working shell.
+# [BHB Ch. 1]: A Here-Document (heredoc) streams text block boundaries straight into user profiles without echoes.
+RUN cat >> /root/.bashrc <<'EOF'
+
+# ==== Valida si un comando fue ejecutado correctamente ====
+_ps1_status() { [ $? -eq 0 ] && echo "\[\e[32m\]✓" || echo "\[\e[31m\]✘ $?"; }
+
+# Configures the global PS1 environment variable using ANSI color escape sequences to format the user prompt layout
+PS1='\[\e[36m\][🐐Cayetano_Córdova🐐]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $(_ps1_status)\[\e[0m\] \$ '
+
+# Signals the end of the input stream redirection for the here-document block 
 EOF
-CMD ["/usr/bin/zsh"]
+
+# [BHB Ch. 3]: CMD runs as the active default process target at container runtime, whereas RUN triggers during image build phases.
+# Specifies the default process payload binary that triggers automatically when the container boots up 
+CMD ["/bin/bash"]
