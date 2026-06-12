@@ -1,6 +1,6 @@
 #!/bin/bash
 # Defines a variable named FILE and assigns it the string value "output.txt".
-FILE="output.txt"
+FILE="output2.txt"
 
 # Creates an empty file named "output.txt" (or updates its timestamp if it already exists).
 touch "${FILE}"
