@@ -31,4 +31,14 @@ awk '{print $1,$NF}' log.txt
 
 
 echo -e "hola1,chao1\nhola2,chao2\nhola3,chao3" > test.csv
-#\n is used as a line break
+
+head log.txt
+
+#Filters the file to show only the full lines containing that specific IP address.
+grep "42.236.10.117" log.txt
+
+#Extracts and prints only the 7th column (the requested URLs) from the entire file.
+awk '{print $7}' log.txt
+
+#Combines both to show only the URLs requested by that specific IP address.
+grep "42.236.10.117" log.txt | awk '{print $7}'
